@@ -1,0 +1,21 @@
+-- Función para convertir un número binario a decimal
+function binary_to_decimal(binary)
+    local decimal = 0
+    local power = 0
+    local reversed_binary = string.reverse(binary)  -- Invertimos el número binario para facilitar el cálculo
+    
+    for i = 1, #reversed_binary do
+        local digit = tonumber(string.sub(reversed_binary, i, i))
+        decimal = decimal + digit * (2 ^ power)
+        power = power + 1
+    end
+    
+    return decimal
+end
+
+-- Ejemplos de uso
+local binary_number = "1010"  -- Número binario a convertir
+
+local decimal_number = binary_to_decimal(binary_number)
+
+print("El número binario " .. binary_number .. " es equivalente a " .. decimal_number .. " en decimal.")
